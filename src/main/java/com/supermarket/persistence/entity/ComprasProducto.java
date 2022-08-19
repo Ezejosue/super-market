@@ -27,10 +27,14 @@ public class ComprasProducto {
   @Setter
   private Boolean estado;
 
+  @Getter
+  @Setter
   @ManyToOne
   @JoinColumn(name = "id_compra", insertable = false, updatable = false)
   private Compra compra;
 
+  @Getter
+  @Setter
   @ManyToOne
   @JoinColumn(name = "id_producto", insertable = false, updatable = false)
   private Producto producto;

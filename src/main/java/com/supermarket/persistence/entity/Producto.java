@@ -50,6 +50,8 @@ public class Producto {
   @Setter
   private Boolean estado;
 
+  @Getter
+  @Setter
   @ManyToOne
   @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
   private Categoria categoria;

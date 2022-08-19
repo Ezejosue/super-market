@@ -47,10 +47,14 @@ public class Compra {
   @Setter
   private String estado;
 
+  @Getter
+  @Setter
   @ManyToOne
   @JoinColumn(name = "id_cliente", insertable = false, updatable = false )
   private Cliente cliente;
 
+  @Getter
+  @Setter
   @OneToMany(mappedBy = "producto")
   private List<ComprasProducto> comprasProductoList;
   @Override

@@ -35,6 +35,8 @@ public class Cliente {
   @Setter
   private String correoElectronico;
 
+  @Getter
+  @Setter
   @OneToMany(mappedBy = "cliente")
   private List<Compra> compraList;
 }
