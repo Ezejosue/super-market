@@ -1,7 +1,9 @@
 package com.supermarket.persistence.entity;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Getter;
@@ -32,7 +35,7 @@ public class Compra {
 
   @Getter
   @Setter
-  private LocalTime fecha;
+  private LocalDateTime fecha;
 
   @Column(name = "medio_pago")
   @Getter
@@ -50,13 +53,14 @@ public class Compra {
   @Getter
   @Setter
   @ManyToOne
-  @JoinColumn(name = "id_cliente", insertable = false, updatable = false )
+  @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
   private Cliente cliente;
 
   @Getter
   @Setter
-  @OneToMany(mappedBy = "producto")
-  private List<ComprasProducto> comprasProductoList;
+  @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL})
+  private List<ComprasProducto> productos;
+
   @Override
   public String toString() {
     return "Compra{" +

@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,6 +31,7 @@ public class ComprasProducto {
   @Getter
   @Setter
   @ManyToOne
+  @MapsId("idCompra")
   @JoinColumn(name = "id_compra", insertable = false, updatable = false)
   private Compra compra;
 
